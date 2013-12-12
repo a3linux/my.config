@@ -16,6 +16,7 @@ $ tmux a -d -t <sess-name>
 -d is used for deattach other attached sessions.
 
 * List session
+
 ```
 $ tmux ls
 ```
@@ -48,8 +49,9 @@ h, j, k, l - switch pane as VI mode
 
 ## Resize Panes(Useful)
 ```
-^Z : resize-pane   By default, it is resize to down
-^Z : resize-pane -U | -L | -R resize pane to up, left and right
+PREFIX z - Zoom / Unzoom pane
+PREFIX : resize-pane   By default, it is resize to down
+PREFIX : resize-pane -U | -L | -R resize pane to up, left and right
 ```
 
 ## Copy Mode

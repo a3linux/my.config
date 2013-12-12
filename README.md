@@ -8,10 +8,5 @@ General and important configuration files
 ```
 cp tmux/tmux.conf ~/.tmux.conf
 cp vim/vimrc ~/.vimrc
-mkdir -p ~/.vim/
 ```
-
-Start VIM in terminal.
-
-
 
