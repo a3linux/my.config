@@ -1,16 +1,146 @@
-"
 " Filename: ~/.vimrc
 " Author: Allen Chen<a3linux@gmail.com>
-" Update: 10/22/2012
+" ChangeLog:
 "
+" 12/12/2013 - Integeted most useful and funny function from fisa-vim-config
+"               https://github.com/fisadev/fisa-vim-config
+"
+" 12/20/2012 - Get to use Bundle to manage VIM plugins
+" 
 
-" Ignore "evim" - easy vim, gvim with modeless
-if v:progname =~? "evim"
-	finish
+" no vi-compatible
+set nocompatible
+
+" Setting up Vundle 
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+	echo "Installing Vundle..."
+	echo ""
+	silent !mkdir -p ~/.vim/bundle
+	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	let iCanHazVundle=0
 endif
 
-" General settings
-set nocompatible
+" Begin of vundle
+filetype off " filetype on later
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Bundles
+Bundle 'gmarik/vundle'
+"
+" Begin My Bundles
+"
+" Programming
+Bundle 'L9'
+Bundle 'perl-support.vim'
+Bundle 'bash-support.vim'
+Bundle 'klen/python-mode'
+Bundle 'Pydiction'
+Bundle 'django.vim'
+Bundle 'jslint.vim'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle "jQuery"
+Bundle "rails.vim"
+Bundle "go.vim"
+Bundle "hallison/vim-markdown"
+
+"Bundle "http://github.com/gmarik/snipmate.vim.git"
+
+" syntax highlight
+Bundle "prop.vim"
+Bundle "JSON.vim"
+
+" git integration
+Bundle "motemen/git-vim"
+Bundle "git.zip"
+Bundle "fugitive.vim"
+
+"(HT|X)ml tool
+Bundle "xml.vim"
+Bundle "matchit.zip"
+Bundle "ragtag.vim"
+Bundle "xmledit"
+Bundle "docbkhelper"
+Bundle "closetag.vim"
+
+" SQL 
+Bundle "sql.vim"
+
+" doc
+Bundle "php-doc"
+" Code Commenter
+Bundle "scrooloose/nerdcommenter"
+" Class/moudle browser
+Bundle "majutsushi/tagbar"
+" Code and files fuzzy finder
+Bundle "kien/ctrlp.vim"
+Bundle "fisadev/vim-ctrlp-cmdpalette"
+" Zen Coding
+Bundle "mattn/emmet-vim"
+
+Bundle "bling/vim-airline"
+Bundle "repeat.vim"
+Bundle "surround.vim"
+Bundle "SuperTab"
+Bundle "file-line"
+Bundle "Align"
+Bundle "Auto-Pairs"
+Bundle "Townk/vim-autoclose"
+Bundle "tpope/vim-surround"
+Bundle "michaeljsmith/vim-indent-object"
+
+" Color schema
+Bundle "fisadev/fisa-vim-colorscheme"
+Bundle "tortex"
+Bundle "EditPlus"
+Bundle "altercation/vim-colors-solarized"
+Bundle "Wombat"
+
+" Autocomplete
+Bundle "Shougo/neocomplcache.vim"
+Bundle "CompleteHelper"
+Bundle "CamelCaseComplete"
+
+" File browser
+Bundle 'scrooloose/nerdtree'
+
+" Tab list panel 
+Bundle "kien/tabman.vim"
+
+" Snippets manager
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/vim-snippets"
+Bundle "garbas/vim-snipmate"
+
+" Auto sort python imports
+Bundle "fisadev/vim-isort"
+
+Bundle "YankRing.vim"
+
+if iCanHazVundle == 0
+	echo "Installing Bundles, please ignore key map error messages"
+	echo ""
+	:BundleInstall
+endif
+" End My Bundles 
+
+" Allow plugins by file type
+filetype plugin on
+filetype indent on
+
+" Tabs and Spaces
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set autoindent
+set smartindent
+
+"General settings
 set backspace=indent,eol,start
 set nobackup
 set history=500
@@ -26,14 +156,7 @@ set background=dark
 set laststatus=2
 set statusline=%F%m%r%h%W\ [%{&ff}][%Y][%{&fenc}][%04l,%04v,%p%%\ %L]
 set winminheight=1
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set smarttab
-set noexpandtab " set expandtab
 set linespace=0
-set autoindent
-set smartindent
 set cindent
 set wrap
 set cmdheight=2
@@ -67,74 +190,6 @@ set encoding=utf-8
 let &termencoding=&encoding
 set fileencodings=utf-8,gb18030,ucs-bom,cp936
 
-" Settings of Vundle
-filetype off " filetype on later
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Bundles
-Bundle 'gmarik/vundle'
-"
-" Begin My Bundles
-"
-" Programming
-Bundle 'L9'
-Bundle 'perl-support.vim'
-Bundle 'bash-support.vim'
-Bundle 'klen/python-mode'
-Bundle 'Pydiction'
-Bundle 'django.vim'
-Bundle 'jslint.vim'
-Bundle 'maksimr/vim-jsbeautify'
-Bundle "jQuery"
-Bundle "rails.vim"
-Bundle "go.vim"
-Bundle "hallison/vim-markdown"
-
-"Bundle "http://github.com/gmarik/snipmate.vim.git"
-
-" syntax highlight
-Bundle "prop.vim"
-Bundle "JSON.vim"
-
-" git integration
-Bundle "git.zip"
-Bundle "fugitive.vim"
-
-"(HT|X)ml tool
-Bundle "xml.vim"
-Bundle "matchit.zip"
-Bundle "ragtag.vim"
-Bundle "xmledit"
-Bundle "docbkhelper"
-Bundle "closetag.vim"
-
-" SQL 
-Bundle "sql.vim"
-
-" doc
-Bundle "php-doc"
-
-Bundle "repeat.vim"
-Bundle "surround.vim"
-Bundle "SuperTab"
-Bundle "file-line"
-Bundle "Align"
-Bundle "Auto-Pairs"
-
-" Color schema
-Bundle "tortex"
-Bundle "EditPlus"
-Bundle "altercation/vim-colors-solarized"
-
-Bundle "CompleteHelper"
-Bundle "CamelCaseComplete"
-
-" End My Bundles 
-
-filetype plugin on
-filetype indent on
-
 " Pydiction
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
@@ -147,11 +202,18 @@ let g:pymode_run_key = 'R'
 let g:pymode_lint_cwindow = 1
 let g:pymode_folding = 0
 let g:pymode_virtualenv = 1
+autocmd FileType python map <buffer> <leader>8 :PyLint<CR>
+let g:pymode_lint_ignore = ""
+let g:pymode_lint_signs = 0
+let g:pymode_rope = 0
 
 " js/css/html beautify()
 autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "Remove the blank at end of line for code
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -179,3 +241,125 @@ autocmd BufWritePre *.H :%s/\s\+$//e
 " autocmd BufWritePre *.conf :%s/\s\+$//e
 "
 let loaded_xmledit = 1
+
+" toggle Tagbar display
+map <F4> :TagbarToggle<CR>
+" autofocus on Tagbar open
+let g:tagbar_autofocus = 1
+
+" NERDTree (better file browser) toggle
+map <F3> :NERDTreeToggle<CR>
+
+" tab navigation
+map tn :tabn<CR>
+map tp :tabp<CR>
+map tm :tabm
+map tt :tabnew
+map ts :tab split<CR>
+map <C-S-Right> :tabn<CR>
+map <C-S-Right> <ESC>:tabn<CR>
+map <C-S-Left> :tabp<CR>
+map <C-S-Left> <ESC>:tabp<CR>
+
+" navigate windows with meta+arrows
+map <M-Right> <c-w>l
+map <M-Left> <c-w>h
+map <M-Up> <c-w>k
+map <M-Down> <c-w>j
+imap <M-Right> <ESC><c-w>l
+imap <M-Left> <ESC><c-w>h
+imap <M-Up> <ESC><c-w>k
+imap <M-Down> <ESC><c-w>j
+
+let g:gitgutter_eager = 0
+let g:gitgutter_realtime = 0
+
+" store yankring history file hidden
+let g:yankring_history_file = '.yankring_history'
+
+" old autocomplete keyboard shortcut
+imap <C-J> <C-X><C-O>
+
+" CtrlP (new fuzzy finder)
+let g:ctrlp_map = ',e'
+nmap ,g :CtrlPBufTag<CR>
+nmap ,G :CtrlPBufTagAll<CR>
+nmap ,f :CtrlPLine<CR>
+nmap ,m :CtrlPMRUFiles<CR>
+nmap ,c :CtrlPCmdPalette<CR>
+" to be able to call CtrlP with default search text
+function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+    execute ':CtrlP' . a:ctrlp_command_end
+    call feedkeys(a:search_text)
+endfunction
+" CtrlP with default text
+nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+nmap ,wG :call CtrlPWithSearchText(expand('<cword>'),'BufTagAll')<CR>
+nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+nmap ,wm :call CtrlPWithSearchText(expand('<cword>'),'MRUFiles')<CR>
+nmap ,wc :call CtrlPWithSearchText(expand('<cword>'),'CmdPalette')<CR>
+" Don't change working directory
+let g:ctrlp_working_path_mode = 0
+" Ignore files on fuzzy finder
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
+  \ 'file': '\.pyc$\|\.pyo$\|\.jpg$\|\.jpeg$\|\.png$\|\.gif$\|\.docx$\|\.pdf$',
+  \ }
+
+" Ignore files on NERDTree
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.jpg', '\.jpeg', '\.png', '\.pdf']
+
+" simple recursive grep
+command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
+command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
+nmap ,R :RecurGrep 
+nmap ,r :RecurGrepFast 
+nmap ,wR :RecurGrep <cword><CR>
+nmap ,wr :RecurGrepFast <cword><CR>
+
+" neocomplcache settings
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_fuzzy_completion_start_length = 1
+let g:neocomplcache_auto_completion_start_length = 1
+let g:neocomplcache_auto_completion_start_length = 1
+let g:neocomplcache_manual_completion_start_length = 1
+let g:neocomplcache_min_keyword_length = 1
+let g:neocomplcache_min_syntax_length = 1
+" complete with workds from any opened file
+let g:neocomplcache_same_filetype_lists = {}
+let g:neocomplcache_same_filetype_lists._ = '_'
+
+" tabman shortcut
+let g:tabman_focus = 'tf'
+let g:tabman_toggle = 'tl'
+
+" colorscheme
+if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
+    let &t_Co = 256
+    colorscheme fisa
+else
+    colorscheme delek
+endif
+
+if has('gui_running')
+    colorscheme wombat
+endif
+
+" Autocomplete mode like shell
+set wildmode=list:longest
+
+" Fix to let ESC work as escape with Autoclose plugins
+let g:AutoClosePumvisible = { "ENTER": "\<C-Y>", "ESC": "\<ESC>" }
+
+" vim-airline settings
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#whitespace#enabled = 0
