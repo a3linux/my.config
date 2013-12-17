@@ -45,6 +45,7 @@ Bundle "jQuery"
 Bundle "rails.vim"
 Bundle "go.vim"
 Bundle "hallison/vim-markdown"
+Bundle "scrooloose/syntastic"
 
 "Bundle "http://github.com/gmarik/snipmate.vim.git"
 
@@ -194,18 +195,42 @@ set fileencodings=utf-8,gb18030,ucs-bom,cp936
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
 " python-mode settings
+" Open pymode python option, some default options will be opened for python
+" buffer
+let g:pymode_options = 1
+" pymode lint 
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pep8"
-let g:pymode_lint_write = 0
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_unmodified = 0
+let g:pymode_lint_on_fly = 1
+let g:pymode_lint_message = 1
+" Open warning windows auto 
+let g:pymode_lint_cwindow = 1
+" ignore E501 too long line 
+" For example, "E501, W"(ignore E501 and all warning)
+let g:pymode_lint_ignore = "E501"
+" If you ignore all warning, select some warnings you want
+" let g:pymode_lint_select = "W0011, W430"
+let g:pymode_lint_sort = ['E', 'C', 'I']
+" Put error signs
+let g:pymode_lint_signs = 1
 let g:pymode_run = 1
 let g:pymode_run_key = 'R'
-let g:pymode_lint_cwindow = 1
 let g:pymode_folding = 0
 let g:pymode_virtualenv = 1
-autocmd FileType python map <buffer> <leader>8 :PyLint<CR>
-let g:pymode_lint_ignore = ""
-let g:pymode_lint_signs = 0
+" Run PEP8 check by \8
+autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
+let g:pymode_quickfix_maxheight = 6
+let g:pymode_quickfix_minheight = 3
+let g:pymode_indent = 1
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+
+" let g:pymode_motion =1 
+" Current disable rope
 let g:pymode_rope = 0
+
 
 " js/css/html beautify()
 autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
@@ -246,6 +271,8 @@ let loaded_xmledit = 1
 map <F4> :TagbarToggle<CR>
 " autofocus on Tagbar open
 let g:tagbar_autofocus = 1
+" autoclose on Tagbar open
+let g:tagbar_autoclose = 1
 
 " NERDTree (better file browser) toggle
 map <F3> :NERDTreeToggle<CR>
