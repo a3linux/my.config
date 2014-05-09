@@ -117,7 +117,7 @@ Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 
 " Auto sort python imports
-Bundle "fisadev/vim-isort"
+" Bundle "fisadev/vim-isort"
 
 Bundle "YankRing.vim"
 
@@ -221,13 +221,13 @@ let g:pymode_folding = 0
 let g:pymode_virtualenv = 1
 " Run PEP8 check by \8
 autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
-let g:pymode_quickfix_maxheight = 6
+let g:pymode_quickfix_maxheight = 8
 let g:pymode_quickfix_minheight = 3
 let g:pymode_indent = 1
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 
-" let g:pymode_motion =1 
+let g:pymode_motion = 1 
 " Current disable rope
 let g:pymode_rope = 0
 
@@ -360,7 +360,7 @@ let g:neocomplcache_auto_completion_start_length = 1
 let g:neocomplcache_manual_completion_start_length = 1
 let g:neocomplcache_min_keyword_length = 1
 let g:neocomplcache_min_syntax_length = 1
-" complete with workds from any opened file
+" complete with words from any opened file
 let g:neocomplcache_same_filetype_lists = {}
 let g:neocomplcache_same_filetype_lists._ = '_'
 
@@ -389,4 +389,5 @@ let g:AutoClosePumvisible = { "ENTER": "\<C-Y>", "ESC": "\<ESC>" }
 " vim-airline settings
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'bubblegum'
-let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0 
+

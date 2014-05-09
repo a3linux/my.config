@@ -1,0 +1,11 @@
+[user]
+	name = Allen Chen
+	email = a3linux@gmail.com
+
+[core]
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interative = true
