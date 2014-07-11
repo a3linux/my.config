@@ -41,6 +41,7 @@ Bundle 'Pydiction'
 Bundle 'django.vim'
 Bundle 'jslint.vim'
 Bundle 'maksimr/vim-jsbeautify'
+Bundle 'einars/js-beautify'
 Bundle "jQuery"
 Bundle "rails.vim"
 Bundle "go.vim"
