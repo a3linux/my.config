@@ -220,7 +220,7 @@ let g:pymode_lint_sort = ['E', 'C', 'I']
 let g:pymode_lint_signs = 1
 let g:pymode_run = 1
 let g:pymode_run_key = 'R'
-let g:pymode_folding = 0
+let g:pymode_folding = 1
 let g:pymode_virtualenv = 1
 " Run PEP8 check by \8
 autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
@@ -266,6 +266,8 @@ autocmd BufWritePre *.sh :%s/\s\+$//e
 autocmd BufWritePre *.C :%s/\s\+$//e
 autocmd BufWritePre *.CPP :%s/\s\+$//e
 autocmd BufWritePre *.H :%s/\s\+$//e
+autocmd BufWritePre *.md :%s/\s\+$//e
+autocmd BufWritePre *.rst :%s/\s\+$//e
 " autocmd BufWritePre *.conf :%s/\s\+$//e
 "
 let loaded_xmledit = 1
@@ -393,3 +395,6 @@ let g:AutoClosePumvisible = { "ENTER": "\<C-Y>", "ESC": "\<ESC>" }
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0 
+
+" bash-support
+let g:BASH_GlobalTemplateFile = $HOME.'/.vim/bundle/bash-support.vim/bash-support/templates/Templates'
