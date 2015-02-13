@@ -70,6 +70,9 @@ Bundle "closetag.vim"
 " SQL 
 Bundle "sql.vim"
 
+" PowerShell 
+Bundle "PProvost/vim-ps1"
+
 " doc
 Bundle "php-doc"
 " Code Commenter
