@@ -102,6 +102,7 @@ Bundle "tortex"
 Bundle "EditPlus"
 Bundle "altercation/vim-colors-solarized"
 Bundle "Wombat"
+Bundle "Zenburn"
 
 " Autocomplete
 Bundle "Shougo/neocomplcache.vim"
