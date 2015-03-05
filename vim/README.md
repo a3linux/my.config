@@ -16,3 +16,6 @@ https://github.com/fisadev/fisa-vim-config for more reference and material.
 * Open vim and run :BundleInstall
 * Copy file in folder vim/ to ~/.vim/
 
+# PowerLine fonts
+For vim-airline, please use a powerlined font for your terminal.
+Fonts can be found [Here](https://github.com/powerline/fonts)

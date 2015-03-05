@@ -58,6 +58,8 @@ Bundle "JSON.vim"
 Bundle "motemen/git-vim"
 Bundle "git.zip"
 Bundle "fugitive.vim"
+Bundle "airblade/vim-gitgutter"
+Bundle "tpope/vim-fugitive"
 
 "(HT|X)ml tool
 Bundle "xml.vim"
@@ -85,7 +87,13 @@ Bundle "fisadev/vim-ctrlp-cmdpalette"
 " Zen Coding
 Bundle "mattn/emmet-vim"
 
+" tags 
+Bundle "xolox/vim-misc"
+Bundle "xolox/vim-easytags"
+
+" featured statusbar/tabbar
 Bundle "bling/vim-airline"
+
 Bundle "repeat.vim"
 Bundle "surround.vim"
 Bundle "SuperTab"
@@ -103,14 +111,22 @@ Bundle "EditPlus"
 Bundle "altercation/vim-colors-solarized"
 Bundle "Wombat"
 Bundle "Zenburn"
+Bundle "tomasr/molokai"
+
+" TmuxLine 
+Bundle "edkolev/tmuxline.vim"
+" tmux navigator 
+Bundle "christoomey/vim-tmux-navigator"
 
 " Autocomplete
 Bundle "Shougo/neocomplcache.vim"
 Bundle "CompleteHelper"
 Bundle "CamelCaseComplete"
+Bundle "Raimondi/delimitMate"
 
 " File browser
 Bundle 'scrooloose/nerdtree'
+Bundle "jistr/vim-nerdtree-tabs"
 
 " Tab list panel 
 Bundle "kien/tabman.vim"
@@ -283,8 +299,15 @@ let g:tagbar_autofocus = 1
 " autoclose on Tagbar open
 let g:tagbar_autoclose = 1
 
-" NERDTree (better file browser) toggle
-map <F3> :NERDTreeToggle<CR>
+" NERDTree (better file browser) toggle 
+" <F3> to open NERDTree File Browser 
+map <F3> :NERDTreeToggle<CR> 
+" Open NERDTree if no file 
+autocmd StdinReadPre * let s:std_in=1 
+autocmd VimEnter * if argc() == 0 && !exists("S:std_in") | NERDTree | endif
+
+" Ignore files on NERDTree
+let NERDTreeIgnore = ['\.git/', '\.pyc$', '\.pyo$', '\.jpg', '\.jpeg', '\.png', '\.pdf']
 
 " tab navigation
 map tn :tabn<CR>
@@ -344,8 +367,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.pyc$\|\.pyo$\|\.jpg$\|\.jpeg$\|\.png$\|\.gif$\|\.docx$\|\.pdf$',
   \ }
 
-" Ignore files on NERDTree
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.jpg', '\.jpeg', '\.png', '\.pdf']
 
 " simple recursive grep
 command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
@@ -407,6 +428,39 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|' 
+let g:airline#extensions#hunks#non_zero_only = 1
 
 " bash-support
 let g:BASH_GlobalTemplateFile = $HOME.'/.vim/bundle/bash-support.vim/bash-support/templates/Templates' 
+
+" scrooloose/syntastic settings 
+" show list of errors and warnings on the current file 
+nmap <leader>e :Errors<CR> 
+let g:syntastic_check_on_open = 0
+let g:syntastic_enable_signs = 0 
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'"
+
+" xolox/easytags settings 
+set tags=./tags;,~/.vimtags 
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1 
+let g:easytags_suppress_ctags_warning = 1 
+
+" supertab settings 
+let g:SupoerTabMapping = 0 
+
+" Raimondi/delimitmate settings
+let delimitMate_expand_cr = 0
+let delimitMate_expand_space = 0
+augroup mydelimitMate 
+    au!
+    au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+    au FileType tex let b:delimitMate_quotes = "" 
+    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+    au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+augroup END
