@@ -421,6 +421,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline_theme = 'bubblegum'
 let g:airline_theme = 'wombat'
 let g:airline#extensions#whitespace#enabled = 0 
+let g:airline#extensions#tmuxline#enabled = 1
 
 " Enable the list of buffers 
 let g:airline#extensions#tabline#enabled = 1 
@@ -463,4 +464,4 @@ augroup mydelimitMate
     au FileType tex let b:delimitMate_quotes = "" 
     au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
     au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
-augroup END
+augroup END 
