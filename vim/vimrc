@@ -112,6 +112,7 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "Wombat"
 Bundle "Zenburn"
 Bundle "tomasr/molokai"
+Bundle 'NLKNguyen/papercolor-theme'
 
 " TmuxLine 
 Bundle "edkolev/tmuxline.vim"
@@ -402,7 +403,8 @@ let g:tabman_toggle = 'tl'
 " colorscheme
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
     let &t_Co = 256
-    colorscheme fisa
+    " colorscheme fisa
+    colorscheme PaperColor-Dark
 else
     colorscheme delek
 endif
@@ -420,7 +422,8 @@ let g:AutoClosePumvisible = { "ENTER": "\<C-Y>", "ESC": "\<ESC>" }
 " vim-airline settings
 let g:airline_powerline_fonts = 1
 " let g:airline_theme = 'bubblegum'
-let g:airline_theme = 'wombat'
+let g:airline_theme = 'PaperColor'
+" let g:airline_theme = 'wombat'
 let g:airline#extensions#whitespace#enabled = 0 
 let g:airline#extensions#tmuxline#enabled = 1
 
