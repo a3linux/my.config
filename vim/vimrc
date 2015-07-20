@@ -404,7 +404,7 @@ let g:tabman_toggle = 'tl'
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
     let &t_Co = 256
     " colorscheme fisa
-    colorscheme PaperColor-Dark
+    colorscheme PaperColor
 else
     colorscheme delek
 endif
