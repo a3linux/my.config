@@ -45,6 +45,7 @@ Bundle 'einars/js-beautify'
 Bundle "jQuery"
 Bundle "rails.vim"
 Bundle "go.vim"
+Bundle "fatih/vim-go"
 Bundle "hallison/vim-markdown"
 Bundle "scrooloose/syntastic"
 
@@ -104,7 +105,7 @@ Bundle "Townk/vim-autoclose"
 Bundle "tpope/vim-surround"
 Bundle "michaeljsmith/vim-indent-object"
 
-" Color schema
+" Color scheme
 Bundle "fisadev/fisa-vim-colorscheme"
 Bundle "tortex"
 Bundle "EditPlus"
@@ -113,6 +114,7 @@ Bundle "Wombat"
 Bundle "Zenburn"
 Bundle "tomasr/molokai"
 Bundle 'NLKNguyen/papercolor-theme'
+Bundle 'whatyouhide/vim-gotham'
 
 " TmuxLine 
 Bundle "edkolev/tmuxline.vim"
@@ -135,8 +137,8 @@ Bundle "kien/tabman.vim"
 " Snippets manager
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 
 " Auto sort python imports
 " Bundle "fisadev/vim-isort"
@@ -266,6 +268,7 @@ autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "Remove the blank at end of line for code
+autocmd BufWritePre *.yml :%s/\s\+$//e
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.php :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
@@ -290,7 +293,7 @@ autocmd BufWritePre *.CPP :%s/\s\+$//e
 autocmd BufWritePre *.H :%s/\s\+$//e
 autocmd BufWritePre *.md :%s/\s\+$//e
 autocmd BufWritePre *.rst :%s/\s\+$//e
-" autocmd BufWritePre *.conf :%s/\s\+$//e
+autocmd BufWritePre *.txt :%s/\s\+$//e
 "
 let loaded_xmledit = 1
 
@@ -440,8 +443,14 @@ let g:BASH_GlobalTemplateFile = $HOME.'/.vim/bundle/bash-support.vim/bash-suppor
 
 " scrooloose/syntastic settings 
 " show list of errors and warnings on the current file 
+set statusline+=%#warningmsg# 
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 nmap <leader>e :Errors<CR> 
-let g:syntastic_check_on_open = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0 
 let g:syntastic_enable_signs = 0 
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
