@@ -53,6 +53,8 @@ Plugin 'vim-syntastic/syntastic'
 " syntax highlight
 Plugin 'prop.vim'
 Plugin 'JSON.vim'
+Plugin 'posva/vim-vue' 
+Plugin 'pangloss/vim-javascript'
 
 " git integration
 Plugin 'motemen/git-vim'
@@ -207,6 +209,8 @@ set number
 set showtabline=2
 set cursorline
 set cursorcolumn
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
 set vb t_vb=
 set noerrorbells
 set mouse-=a
@@ -287,8 +291,10 @@ autocmd FileType jsx  noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType json  noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType vue noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
