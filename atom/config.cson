@@ -1,0 +1,100 @@
+"*":
+  "atom-beautify":
+    css:
+      indent_size: 2
+    general:
+      _analyticsUserId: "14ec1f18-f8ea-4e28-a46b-87f8ac150b3f"
+    html:
+      indent_size: 2
+    scss:
+      indent_size: 2
+    vue:
+      indent_size: 2
+      jslint_happy: true
+      keep_array_indentation: true
+      keep_function_indentation: true
+      space_after_anon_function: true
+      space_in_empty_paren: true
+      space_in_paren: true
+      unescape_strings: true
+      wrap_attributes_indent_size: 2
+  "autocomplete-python":
+    useKite: false
+    useSnippets: "all"
+  "color-picker":
+    abbreviateValues: true
+    automaticReplace: true
+  core:
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "about"
+      "welcome"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      ".venv"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "neutron-dark-ui"
+      "neutron-dark-syntax"
+    ]
+    useProxySettingsWhenCallingApm: false
+  editor:
+    fontFamily: "Inconsolata"
+    fontSize: 15
+    lineHeight: 1.2
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "5bb6fb8a-cd37-4896-a0c4-f2a78c56243a"
+  "go-plus":
+    currentPanelHeight: "41.95906432748538vh"
+  kite:
+    showKiteTourOnStatup: false
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "neutron-dark-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
+  "regex-railroad-diagram": {}
+  "remote-edit":
+    filterHostsUsing:
+      hostname: false
+    foldersOnTop: true
+    rememberLastOpenDirectory: true
+    showHiddenFiles: true
+  "sync-settings":
+    _lastBackupHash: "ba89b736299c95f45a5c305c4a151b9f8c82efbf"
+    gistId: "26d00b5315b217b055af6b8d41f6d4fa"
+    personalAccessToken: "b6bff89c275c9448ebd624e495956c8fb953103d"
+  "tree-view":
+    alwaysOpenExisting: true
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  "vim-mode-plus":
+    automaticallyEscapeInsertModeOnActivePaneItemChange: true
+    clearHighlightSearchOnResetNormalMode: true
+    clearPersistentSelectionOnResetNormalMode: true
+    highlightSearch: true
+    ignoreCaseForSearch: true
+    incrementalSearch: true
+    smoothScrollOnFullScrollMotion: true
+    smoothScrollOnHalfScrollMotion: true
+    statusBarModeStringStyle: "long"
+    stayOnDelete: true
+    stayOnTransformString: true
+    stayOnYank: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false

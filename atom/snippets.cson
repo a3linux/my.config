@@ -1,0 +1,52 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+# pyheader
+'.source.python':
+  'ADSK PyHeader':
+    'prefix': 'adskpyheader'
+    'body': """
+      # -*- coding: utf-8 -*-
+      # ##############################################################################
+      #         FILE: ${filename}
+      #        USAGE:
+      #  DESCRIPTION:
+      # REQUIREMENTS:
+      #       AUTHOR: Allen Chen <allen.chen@autodesk.com>
+      # Copyright 2017 Autodesk Inc. All rights reserved.
+      # ##############################################################################
+      """
+
+'.source.python':
+  'A3 PyHeader':
+    'prefix': 'a3pyheader'
+    'body': """
+      # -*- coding: utf-8 -*-
+      # ##############################################################################
+      #         FILE: ${filename}
+      #        USAGE:
+      #  DESCRIPTION:
+      # REQUIREMENTS:
+      #       AUTHOR: Allen Chen <a3linux@gmail.com>
+      # Copyright 2017 A3Linux Studio All rights reserved.
+      # ##############################################################################
+      """
