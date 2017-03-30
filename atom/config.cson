@@ -77,7 +77,7 @@
   "sync-settings":
     _lastBackupHash: "ba89b736299c95f45a5c305c4a151b9f8c82efbf"
     gistId: "26d00b5315b217b055af6b8d41f6d4fa"
-    personalAccessToken: "b6bff89c275c9448ebd624e495956c8fb953103d"
+    personalAccessToken: ""
   "tree-view":
     alwaysOpenExisting: true
     hideIgnoredNames: true
