@@ -47,6 +47,7 @@ Plugin 'go.vim'
 Plugin 'fatih/vim-go'
 Plugin 'hallison/vim-markdown'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'editorconfig/editorconfig-vim'
 
 "Plugin 'http://github.com/gmarik/snipmate.vim.git'
 
