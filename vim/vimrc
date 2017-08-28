@@ -447,6 +447,9 @@ if has('gui_running')
     colorscheme wombat
 endif
 
+highlight Normal ctermbg=none 
+highlight NonText ctermbg=none 
+
 " Autocomplete mode like shell
 set wildmode=list:longest
 
