@@ -3,7 +3,7 @@
 	email = a3linux@gmail.com
 
 [core]
-
+    editor = vim
 [color]
 	diff = auto
 	status = auto
