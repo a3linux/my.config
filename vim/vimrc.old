@@ -1,0 +1,583 @@
+" Filename: ~/.vimrc
+" Author: Allen Chen<a3linux@gmail.com>
+" ChangeLog:
+"
+" 12/12/2013 - Integeted most useful and funny function from fisa-vim-config
+"               https://github.com/fisadev/fisa-vim-config
+"
+" 12/20/2012 - Get to use Bundle to manage VIM plugins
+"
+
+" no vi-compatible
+set nocompatible
+
+" Setting up Vundle
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+	echo "Installing Vundle..."
+	echo ""
+	silent !mkdir -p ~/.vim/bundle
+	silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+	let iCanHazVundle=0
+endif
+
+" Begin of vundle
+filetype off " filetype on later
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+
+" Vundle
+Plugin 'VundleVim/Vundle.vim'
+
+"
+" Begin Plugins
+"
+" Vim itself related
+"
+" L9 is for Vim Plugin Developping
+Plugin 'L9'
+
+"
+" Git
+"
+" Git command wrapper - :G<git-cmd>
+Plugin 'tpope/vim-fugitive'
+" Filetype for gitconfig, gitcommit, gitrebase ...
+Plugin 'tpope/vim-git'
+" Plugin to show git diff in gutter(sign column)
+Plugin 'airblade/vim-gitgutter'
+
+"
+" Programming Languages
+"
+" Perl
+Plugin 'perl-support.vim'
+" Shell
+Plugin 'bash-support.vim'
+" Python
+Plugin 'klen/python-mode'
+Plugin 'Pydiction'
+Plugin 'django.vim'
+" php
+Plugin 'php-doc'
+" Javascript / Css
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'jQuery'
+Plugin 'JSON.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'posva/vim-vue'
+Plugin 'isRuslan/vim-es6'
+Plugin 'pangloss/vim-javascript'
+" TypeScript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/vim-js-pretty-template'
+" HTML / XML / ...
+Plugin 'xml.vim'
+Plugin 'matchit.zip'
+Plugin 'ragtag.vim'
+Plugin 'xmledit'
+Plugin 'docbkhelper'
+Plugin 'closetag.vim'
+" SQL
+Plugin 'sql.vim'
+" PowerShell
+Plugin 'PProvost/vim-ps1'
+" Golang
+Plugin 'go.vim'
+Plugin 'fatih/vim-go'
+" Markdown
+Plugin 'hallison/vim-markdown'
+
+"
+" Syntax
+"
+" Syntastic - Wonderful syntax check plugin
+Plugin 'vim-syntastic/syntastic'
+
+"
+Plugin 'editorconfig/editorconfig-vim'
+
+Plugin 'prop.vim'
+
+" Code Commenter
+Plugin 'scrooloose/nerdcommenter'
+" Class/moudle browser
+Plugin 'majutsushi/tagbar'
+" Code and files fuzzy finder
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'fisadev/vim-ctrlp-cmdpalette'
+
+" Zen Coding
+Plugin 'mattn/emmet-vim'
+
+" tags
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+
+"
+" Vim UI
+"
+" Statusbar/Tabbar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'repeat.vim'
+Plugin 'surround.vim'
+Plugin 'file-line'
+Plugin 'Align'
+Plugin 'Auto-Pairs'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tpope/vim-surround'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'Yggdroot/indentLine'
+Plugin 'godlygeek/tabular'
+
+" Color scheme PaperColor
+Plugin 'NLKNguyen/papercolor-theme'
+
+" TmuxLine
+Plugin 'edkolev/tmuxline.vim'
+" tmux navigator
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Autocomplete
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'CompleteHelper'
+Plugin 'CamelCaseComplete'
+Plugin 'Raimondi/delimitMate'
+"Plugin 'Valloric/YouCompleteMe'
+" File browser
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" Tab list panel
+Plugin 'kien/tabman.vim'
+
+" Snippets manager
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" Auto sort python imports
+" Plugin 'fisadev/vim-isort'
+
+Plugin 'YankRing.vim'
+" Fold
+"Plugin 'tmhedberg/SimpylFold'
+
+"
+" End Vundle Plugins
+"
+
+" Install Vundle if we missed it
+if iCanHazVundle == 0
+	echo "Installing Bundles, please ignore key map error messages"
+	echo ""
+	:BundleInstall
+endif
+
+call vundle#end()
+" End Vundle
+
+" Allow plugins by file type
+filetype plugin indent on
+
+" fold
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+set fen " Or set nofen
+
+" Tabs / Spaces / Wrap
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set autoindent
+set smartindent
+set cindent
+set wrap
+
+"General settings
+set backspace=indent,eol,start
+set nobackup
+set history=800
+set showcmd
+set autoread
+set mat=2
+set scrolloff=3
+set sidescrolloff=2
+set wildmenu " Display all matching when <Tab>
+set ruler
+set wildignore+=*.0,*~.lo
+set suffixes+=.txt,.xml,.php,.c
+set lazyredraw
+set path+=** " Search Subfolder/* for file actions
+
+" UI settings
+set laststatus=2
+set statusline=%F%m%r%h%W\ [%{&ff}][%Y][%{&fenc}][%04l,%04v,%p%%\ %L]
+set winminheight=1
+set linespace=0
+set cmdheight=2
+set number
+set showtabline=2
+set cursorline
+set cursorcolumn
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
+set vb t_vb=
+set noerrorbells
+set mouse-=a
+set mousehide
+syntax on
+" Not break line in word
+set lbr
+
+set background=dark
+" colorscheme
+if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
+    let &t_Co = 256
+    colorscheme PaperColor
+else
+    colorscheme delek
+endif
+
+if has('gui_running')
+    colorscheme PaperColor
+endif
+
+let g:PaperColor_Theme_Options = {
+            \ 'language': {
+            \   'python': {
+            \       'highlight_builtins': 1
+            \   }
+            \},
+            \ 'theme': {
+            \   'default.dark': {
+            \       'transparent_background': 1
+            \       }
+            \   }
+            \}
+
+" Set background to none(transparent)
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
+" Statusbar UI vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'papercolor'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#hunks#non_zero_only = 1
+
+" OS Special
+set ffs=unix,dos,mac " Used on Linux
+
+" Search settings
+set incsearch
+set hlsearch
+set showmatch
+set ignorecase
+set smartcase
+set infercase
+
+" File encoding settings
+set encoding=utf-8
+let &termencoding=&encoding
+set fileencodings=utf-8,gb18030,ucs-bom,cp936
+
+" leader key
+let mapleader=';'
+
+"
+" Autocomplete
+"
+
+"
+" Search
+"
+
+"
+" Folding
+"
+
+"
+" Auto Editting
+"
+
+"
+" Programming Languages settings
+"
+"
+" Python
+"
+" Pydiction
+let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+" python-mode settings
+" Open pymode python option, some default options will be opened for python
+" buffer
+let g:pymode_options = 1
+" pymode lint
+let g:pymode_lint = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_unmodified = 0
+let g:pymode_lint_on_fly = 1
+let g:pymode_lint_message = 1
+" Open warning windows auto
+let g:pymode_lint_cwindow = 1
+" pymodelint ignore errors
+" E501 - too long line
+" F999 - import star
+let g:pymode_lint_ignore = "E501,F999"
+" If you ignore all warning, select some warnings you want
+" let g:pymode_lint_select = "W0011, W430"
+let g:pymode_lint_sort = ['E', 'C', 'I']
+" Put error signs
+let g:pymode_lint_signs = 1
+let g:pymode_run = 1
+let g:pymode_run_key = 'R'
+let g:pymode_folding = 1
+let g:pymode_virtualenv = 1
+" Run PEP8 check by \8
+autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
+let g:pymode_quickfix_maxheight = 8
+let g:pymode_quickfix_minheight = 3
+let g:pymode_indent = 1
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_motion = 1
+" Current disable rope
+let g:pymode_rope = 0
+
+
+" js/css/html beautify()
+autocmd FileType jsx  noremap <buffer> <c-f> :call JsxBeautify()<cr>
+autocmd FileType json  noremap <buffer> <c-f> :call JsonBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType vue noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+"Remove the blank at end of line for code
+autocmd BufWritePre *.yml :%s/\s\+$//e
+autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.php :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.css :%s/\s\+$//e
+autocmd BufWritePre *.pp :%s/\s\+$//e
+autocmd BufWritePre *.c :%s/\s\+$//e
+autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.htm :%s/\s\+$//e
+autocmd BufWritePre *.cpp :%s/\s\+$//e
+autocmd BufWritePre *.h :%s/\s\+$//e
+autocmd BufWritePre *.go :%s/\s\+$//e
+autocmd BufWritePre *.cxx :%s/\s\+$//e
+autocmd BufWritePre *.ini :%s/\s\+$//e
+autocmd BufWritePre *.java :%s/\s\+$//e
+autocmd BufWritePre *.pl :%s/\s\+$//e
+autocmd BufWritePre *.xml :%s/\s\+$//e
+autocmd BufWritePre *.coffee :%s/\s\+$//e
+autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.sh :%s/\s\+$//e
+autocmd BufWritePre *.C :%s/\s\+$//e
+autocmd BufWritePre *.CPP :%s/\s\+$//e
+autocmd BufWritePre *.H :%s/\s\+$//e
+autocmd BufWritePre *.md :%s/\s\+$//e
+autocmd BufWritePre *.rst :%s/\s\+$//e
+autocmd BufWritePre *.txt :%s/\s\+$//e
+"
+let loaded_xmledit = 1
+
+" toggle Tagbar display
+map <F4> :TagbarToggle<CR>
+" autofocus on Tagbar open
+let g:tagbar_autofocus = 1
+" autoclose on Tagbar open
+let g:tagbar_autoclose = 1
+
+" NERDTree (better file browser) toggle
+" <F3> to open NERDTree File Browser
+map <F3> :NERDTreeToggle<CR>
+" Open NERDTree if no file
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("S:std_in") | NERDTree | endif
+
+" Ignore files on NERDTree
+let NERDTreeIgnore = ['\.git/', '\.pyc$', '\.pyo$', '\.jpg', '\.jpeg', '\.png', '\.pdf', '\.docx', '\.xls']
+
+" tab navigation
+map tn :tabn<CR>
+map tp :tabp<CR>
+map tm :tabm
+map tt :tabnew
+map ts :tab split<CR>
+map <C-S-Right> :tabn<CR>
+map <C-S-Right> <ESC>:tabn<CR>
+map <C-S-Left> :tabp<CR>
+map <C-S-Left> <ESC>:tabp<CR>
+
+" navigate windows with meta+arrows
+map <M-Right> <c-w>l
+map <M-Left> <c-w>h
+map <M-Up> <c-w>k
+map <M-Down> <c-w>j
+imap <M-Right> <ESC><c-w>l
+imap <M-Left> <ESC><c-w>h
+imap <M-Up> <ESC><c-w>k
+imap <M-Down> <ESC><c-w>j
+
+let g:gitgutter_eager = 0
+let g:gitgutter_realtime = 0
+
+" store yankring history file hidden
+let g:yankring_history_file = '.yankring_history'
+
+" old autocomplete keyboard shortcut
+imap <C-J> <C-X><C-O>
+
+" CtrlP (new fuzzy finder)
+let g:ctrlp_map = ';e'
+nmap ;g :CtrlPBufTag<CR>
+nmap ;G :CtrlPBufTagAll<CR>
+nmap ;f :CtrlPLine<CR>
+nmap ;m :CtrlPMRUFiles<CR>
+nmap ;c :CtrlPCmdPalette<CR>
+" to be able to call CtrlP with default search text
+function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+    execute ':CtrlP' . a:ctrlp_command_end
+    call feedkeys(a:search_text)
+endfunction
+" CtrlP with default text
+nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+nmap ,wG :call CtrlPWithSearchText(expand('<cword>'),'BufTagAll')<CR>
+nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+nmap ,wm :call CtrlPWithSearchText(expand('<cword>'),'MRUFiles')<CR>
+nmap ,wc :call CtrlPWithSearchText(expand('<cword>'),'CmdPalette')<CR>
+" Don't change working directory
+let g:ctrlp_working_path_mode = 0
+" Ignore files on fuzzy finder
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
+  \ 'file': '\.pyc$\|\.pyo$\|\.jpg$\|\.jpeg$\|\.png$\|\.gif$\|\.docx$\|\.pdf$',
+  \ }
+
+" simple recursive grep
+command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
+command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
+nmap ,R :RecurGrep
+nmap ,r :RecurGrepFast
+nmap ,wR :RecurGrep <cword><CR>
+nmap ,wr :RecurGrepFast <cword><CR>
+
+" neocomplcache settings
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_fuzzy_completion_start_length = 1
+let g:neocomplcache_auto_completion_start_length = 1
+let g:neocomplcache_auto_completion_start_length = 1
+let g:neocomplcache_manual_completion_start_length = 1
+let g:neocomplcache_min_keyword_length = 1
+let g:neocomplcache_min_syntax_length = 1
+" complete with words from any opened file
+let g:neocomplcache_same_filetype_lists = {}
+let g:neocomplcache_same_filetype_lists._ = '_'
+
+" tabman shortcut
+let g:tabman_focus = 'tf'
+let g:tabman_toggle = 'tl'
+
+" Autocomplete mode like shell
+set wildmode=list:longest
+
+" Fix to let ESC work as escape with Autoclose plugins
+let g:AutoClosePumvisible = { "ENTER": "\<C-Y>", "ESC": "\<ESC>" }
+
+
+" bash-support
+let g:BASH_GlobalTemplateFile = $HOME.'/.vim/bundle/bash-support.vim/bash-support/templates/Templates'
+
+" vim-syntastic/syntastic settings
+" show list of errors and warnings on the current file
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+nmap <leader>e :Errors<CR>
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'"
+" As we have pymode, use pylint for syntastic here
+let g:syntastic_python_checkers = ['pyflakes', 'python']
+let g:syntastic_javascript_checkers = ['node']
+
+" xolox/easytags settings
+set tags=./tags;,~/.vimtags
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" supertab settings
+let g:SupoerTabMapping = 0
+
+" Raimondi/delimitmate settings
+let delimitMate_expand_cr = 0
+let delimitMate_expand_space = 0
+
+" typescript-vim
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+"indentLine
+let g:indentLine_setColors = 0
+let g:indentLine_color_gui = '#A4E57E'
+
+" YouCompleteMe
+"let g:ycm_autoclose_preview_window_after_completion=1
+
+" UltiSnip
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipEditSplit="vertical"
+
+augroup mydelimitMate
+    au!
+    au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+    au FileType tex let b:delimitMate_quotes = ""
+    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+    au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+augroup END
