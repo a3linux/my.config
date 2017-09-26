@@ -52,6 +52,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Editting
+" remove tail blanks
+Plug 'ntpeters/vim-better-whitespace'
 " comment code
 Plug 'scrooloose/nerdcommenter'
 " auto pairs(surround)
@@ -70,6 +72,9 @@ Plug 'airblade/vim-gitgutter'
 
 " Programming languages
 Plug 'vim-syntastic/syntastic'
+
+" tarbar - fly in tags
+Plug 'majutsushi/tagbar'
 
 " perl
 
@@ -318,6 +323,19 @@ let g:syntastic_javascript_checkers = ['eslint', 'node']
 " let g:syntastic_php_checkers = ['php']
 " let g:syntastic_go_checkers = ['go', 'gofmt']
 
+" toggle Tagbar display
+map <leader>t :TagbarToggle<CR>
+" autofocus on Tagbar open
+let g:tagbar_autofocus = 1
+" autoclose on Tagbar open
+let g:tagbar_autoclose = 1
+
+" better-whitespace
+" By default enable whitespace remove on save for all files
+autocmd BufEnter * EnableStripWhitespaceOnSave
+" setup the blacklist for special filetype(s) which DON'T remove whitespace
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
+
 " Call JSBeautify
 autocmd FileType jsx  noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType json  noremap <buffer> <c-f> :call JsonBeautify()<cr>
@@ -331,8 +349,6 @@ autocmd FIleType ejs noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 
 "
 " Begin functions
-"Remove the blank at end of line
-autocmd BufWritePre * :%s/\s\+$//e
 " different ts
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
