@@ -237,10 +237,10 @@ let g:airline#extensions#hunks#non_zero_only = 1
 " key and shortcuts
 let mapleader=';'
 " Tab Shortcuts
-map tn :tabn<CR>
-map tp :tabp<CR>
-map tm :tabm
+" As gt, gT is also very easy to switch tabs, remove tn and tp
+" New Tab
 map tt :tabnew
+" split windows in new tab
 map ts :tab split<CR>
 
 " fold
@@ -271,6 +271,7 @@ let NERDTreeIgnore = ['\.git/', '\.pyc$', '\.pyo$', '\.jpg', '\.jpeg', '\.png', 
 " CtrlP (new fuzzy finder)
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_show_hidden = 1
 nmap ;g :CtrlPBufTag<CR>
 nmap ;G :CtrlPBufTagAll<CR>
 nmap ;f :CtrlPLine<CR>
@@ -281,7 +282,8 @@ let g:ctrlp_working_path_mode = 0
 " Ignore files on fuzzy finder
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
-  \ 'file': '\.pyc$\|\.pyo$\|\.jpg$\|\.jpeg$\|\.png$\|\.gif$\|\.docx$\|\.pdf$',
+  \ 'file': '\v\.(pyc|pyo|jpg|jpeg$|png|gif|docx|pdf)$',
+  \ 'link': 'some_bad_symbolic_links',
   \ }
 
 " completor.vim
