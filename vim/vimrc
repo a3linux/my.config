@@ -31,6 +31,8 @@ call plug#begin('~/.vim/plugged')
 " UI Plugins
 " colorscheme
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'altercation/vim-colors-solarized'
+
 " Statusbar - airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -191,17 +193,18 @@ set mousehide
 set lbr
 set background=dark
 " Colorscheme settings
-if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
+if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256\|xterm-256color'
     let &t_Co = 256
     colorscheme PaperColor
 else
-    colorscheme delek
+    colorscheme solarized
 endif
 
 if has('gui_running')
-    colorscheme PaperColor
-    set columns=88 lines=64
-    set guifont=Inconsolata-g\ for\ Powerline:h13
+    colorscheme solarized
+    " columns: 80(editting) + 25(Navigator) + 3(flag & symbols)
+    set columns=108 lines=64
+    set guifont=Inconsolata-g\ for\ Powerline:h14
 endif
 
 let g:PaperColor_Theme_Options = {
@@ -235,7 +238,7 @@ let g:airline#extensions#hunks#non_zero_only = 1
 
 "
 " key and shortcuts
-let mapleader=';'
+let mapleader=' '
 " Tab Shortcuts
 " As gt, gT is also very easy to switch tabs, remove tn and tp
 " New Tab
@@ -292,7 +295,7 @@ let g:completor_node_binary = '/usr/local/bin/node'
 let g:completor_gocode_binary = '/usr/local/bin/gocode'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsListSnippets="<F2>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " If you want :UltiSnipsEdit to split your window.
