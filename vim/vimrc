@@ -201,10 +201,18 @@ else
 endif
 
 if has('gui_running')
-    colorscheme solarized
     " columns: 80(editting) + 25(Navigator) + 3(flag & symbols)
     set columns=108 lines=64
-    set guifont=Inconsolata-g\ for\ Powerline:h14
+    colorscheme solarized
+    if has("gui_macvim")
+        set guifont=Inconsolata-g\ for\ Powerline:h14
+    else
+        set guifont=Inconsolata-g\ for\ Powerline\ Medium\ 11
+        set guioptions-=m
+        set guioptions-=T
+        set guioptions-=r
+        set guioptions-=L
+    endif
 endif
 
 let g:PaperColor_Theme_Options = {
