@@ -83,6 +83,8 @@ Plug 'majutsushi/tagbar'
 " Go
 
 " Python
+" pip8 indent
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " Php
 
@@ -298,9 +300,9 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " completor.vim
-let g:completor_python_binary = '/usr/local/bin/python3'
-let g:completor_node_binary = '/usr/local/bin/node'
-let g:completor_gocode_binary = '/usr/local/bin/gocode'
+let g:completor_python_binary = 'python3'
+let g:completor_node_binary = 'node'
+let g:completor_gocode_binary = 'gocode'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<F2>"
