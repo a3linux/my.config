@@ -194,6 +194,8 @@ set mouse=a
 set mousehide
 set lbr
 set background=dark
+set colorcolumn=80
+
 " Colorscheme settings
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256\|xterm-256color'
     let &t_Co = 256
