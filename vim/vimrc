@@ -52,6 +52,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Editting
 " remove tail blanks
