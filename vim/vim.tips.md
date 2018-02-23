@@ -1,6 +1,14 @@
 VIM Tip 使用点滴
 ================
 
+## 必须掌握的VIM原生编辑功能
+
+* a, i, o, A, I, O 不同的插入 a / A 在光标之后/行尾，i/I 在光标位置/行首（非空字符） o/O 在光标行后面/前面 添加新行并插入
+* p, P 在当前光标位置粘贴 / 光标位置之前粘贴
+* u 撤销 U 恢复整行 C-r 重复操作 . 重复上次的motiom编辑
+* \>\> 缩进本行
+* 在删除模式下的删除 C-h 删除一个字符 C-w 删除一个word， C-u 删除当前光标至行首
+
 ## VIM的motion和Textobject
 
 ### Motion 就是指在VIM Normal Mode下，移动光标的动作
@@ -31,7 +39,7 @@ vim的常用operator
 
 * c = change d = delete  s = delete then insert r = replace x = delete charactor y = yank/copy
 * gU, gu, g~ 改成大写/小写/切换大小写, zf 定义折叠
-* >, < 缩进/取消缩进
+* \>, \< 缩进/取消缩进
 * v 是选择 ctrl-v 列模式选择
 * :help operator 查看更多operator的文档
 
@@ -39,15 +47,12 @@ vim的常用operator
 
 * [number] + operator + text-objects  e.g. ciw, di", 2diw
 * [number] + operator + [number] + motion e.g. dj, 2dj, 2d2j, c$, v2fe
+* :help motion.txt 获取关于Vim Motion / Operator的官方联机文档
 
 ### 一些编辑命令已经结合了基本命令 + text-objects
 
-C = c$  D = d$  A = $a  dd = delete the whole line(dj)
+这是一些特殊命令和等效的motion操作的例子
 
-## 必须掌握的VIM原生编辑功能
-
-* a, i, o, A, I, O 不同的插入 a / A 在光标之后/行尾，i/I 在光标位置/行首（非空字符） o/O 在光标行后面/前面 添加新行并插入
-* p, P 在当前光标位置粘贴 / 光标位置之前粘贴
-* u 撤销 U 恢复整行 C-r 重复操作 . 重复上次的motiom编辑
-* >> 缩进本行
-* 在删除模式下的删除 C-h 删除一个字符 C-w 删除一个word， C-u 删除当前光标至行首
+* C = c$
+* D = d$
+* A = $a
