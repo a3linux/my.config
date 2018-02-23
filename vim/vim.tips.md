@@ -8,9 +8,9 @@ VIM Tip 使用点滴
 **Normal mode and move**
 
     - h,j,k,l是字符为单位（左，下，上，右）
-    - w, e, b 以word为单位（word头，word尾，word头（回去back））
+    - w, e, b 以word为单位（word头，word尾，word头（回去back）） W, E, B Vim WORD移动， WORD定义与word的区别在于WORD表示只要字符串连续，不管是不是单词都算整个WORD，例如this#is@WORDSAMPLE, 如果以word计算，是5个（d5w会删除这个串），但是以WORD计算，是一个
     - f, t, F, T 在本行上（来回）查找, f和t的区别是光标（cursor）落在的位置，f落在查找的字符上，t落在查找的字符前面，大写是反向查找
-    - $, 0, ^ 行尾，行首和行头（非空字符第一个）
+    - $, 0, ^ , g\_ 行尾，行首和行头（非空字符第一个）,行尾（非空字符）
     - H, M, L 和 gg G 大范围的移动 （文档头，文档中间，文档尾，文档头和文档尾）
     - %  跳到匹配的括号 {} () [] 注意 中文全角不能匹配
     - 结合数字的移动，例如 2j，2H，2e, 2w, 2fa 理解这些Motion的意义
@@ -30,12 +30,15 @@ VIM Tip 使用点滴
 vim的常用operator
 
     - c = change d = delete  s = delete then insert r = replace x = delete charactor y = yank/copy
+    - gU, gu, g~ 改成大写/小写/切换大小写, zf 定义折叠
+    - >, < 缩进/取消缩进
+    - v 是选择 ctrl-v 列模式选择
     - :help operator 查看更多operator的文档
 
 ### Vim基本编辑的公式
 
     - [number] + operator + text-objects  e.g. ciw, di", 2diw
-    - [number] + operator + [number] + motion e.g. dj, 2dj, 2d2j, c$
+    - [number] + operator + [number] + motion e.g. dj, 2dj, 2d2j, c$, v2fe
 
 ### 一些编辑命令已经结合了基本命令 + text-objects
 
@@ -43,5 +46,7 @@ vim的常用operator
 
 ## 必须掌握的VIM原生编辑功能
 
+    - a, i, o, A, I, O 不同的插入 a / A 在光标之后/行尾，i/I 在光标位置/行首（非空字符） o/O 在光标行后面/前面 添加新行并插入
+    - p, P 在当前光标位置粘贴 / 光标位置之前粘贴
     - undo - u  redo - Ctrl-r 重复上次的编辑动作 .
     - >> 缩进本行
