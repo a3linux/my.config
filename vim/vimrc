@@ -95,6 +95,9 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 
+" Vue
+Plug 'posva/vim-vue'
+
 " Typescript
 
 " css
@@ -329,8 +332,13 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_text_changed = 'always'
-
+let g:ale_lint_on_text_changed = 'normal'
+" Always show sign column
+let g:ale_sign_column_always = 1
+" ALE Linters customization
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 " Autoformat
 nmap <Leader>f :Autoformat<CR>
 " Disable some autoformat features

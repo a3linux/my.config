@@ -1,4 +1,3 @@
-VIM Tip 使用点滴
 ================
 
 ## 必须掌握的VIM原生编辑功能
@@ -7,7 +6,7 @@ VIM Tip 使用点滴
 * p, P 在当前光标位置粘贴 / 光标位置之前粘贴
 * u 撤销 U 恢复整行 C-r 重复操作 . 重复上次的motiom编辑
 * \>\> 缩进本行
-* 在删除模式下的删除 C-h 删除一个字符 C-w 删除一个word， C-u 删除当前光标至行首
+* 在INSERT模式下的删除 C-h 删除一个字符 C-w 删除一个word， C-u 删除当前光标至行首
 
 ## VIM的motion和Textobject
 
@@ -22,7 +21,7 @@ VIM Tip 使用点滴
 * H, M, L 和 gg G 大范围的移动 （文档头，文档中间，文档尾，文档头和文档尾）
 * %  跳到匹配的括号 {} () [] 注意 中文全角不能匹配
 * 结合数字的移动，例如 2j，2H，2e, 2w, 2fa 理解这些Motion的意义
-* :help motion 查看更多Motion
+* :help motion.txt 查看更多Motion
 
 ### text-objects 文本对象
 
@@ -55,4 +54,3 @@ vim的常用operator
 
 * C = c$
 * D = d$
-* A = $a
