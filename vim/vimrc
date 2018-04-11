@@ -103,6 +103,8 @@ Plug 'posva/vim-vue'
 " css
 
 " markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " shell / powershell / batch
 
@@ -354,6 +356,15 @@ nmap <leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 " autoclose on Tagbar open
 let g:tagbar_autoclose = 1
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_folding_level = 6
+let g:vim_markdown_toc_autofit = 1
+set conceallevel=2
+" let g:vim_markdown_conceal = 0
 
 " better-whitespace
 " By default enable whitespace remove on save for all files
