@@ -1,0 +1,15 @@
+
+# BEGIN of a3linux bashrc
+##A3LINUXBASHRCCONFIGSTAMP##
+# Init Git environment for CLI prompt
+if [ -L $HOME/.git_env.sh ]; then
+    source $HOME/.git_env.sh
+fi
+# Load customized aliases
+if [ -f $HOME/.bash_aliases ]; then
+    source $HOME/.bash_aliases
+fi
+# Add $HOME/bin to PATH
+mkdir -p $HOME/bin
+export PATH=$PATH:$HOME/bin
+# END of a3linux bashrc

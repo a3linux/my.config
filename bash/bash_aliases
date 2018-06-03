@@ -1,0 +1,7 @@
+# Bash aliases
+
+# Force tmux to use xterm-256color
+alias tmux="tmux -2"
+
+# Used to use cls as clear
+alias cls="clear"
