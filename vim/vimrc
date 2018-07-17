@@ -399,3 +399,7 @@ autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "
 " Other Settings
+" Ignore python3.7 import warning as old plugins still in old python version
+if has('python3')
+    silent! python3 1
+endif

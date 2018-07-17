@@ -1,7 +1,13 @@
 # Bash aliases
 
+OSNAME=`uname -s`
+
 # Force tmux to use xterm-256color
 alias tmux="tmux -2"
+
+if [[ ${OSNAME} =~ "Darwin" ]]; then
+    alias ls="ls -G"
+fi
 
 # Used to use cls as clear
 alias cls="clear"
