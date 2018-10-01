@@ -54,3 +54,19 @@ vim的常用operator
 
 * C = c$
 * D = d$
+
+
+## Vim原生补全
+
+* i_CTRL-N - set complete= 指定的关键字补全 :help cpt 查看更多
+* i_CTRL-P
+* i_CTRL-X CTRL-N - 在当前buffer构建关键字补全
+* i_CTRL-X CTRL-K — 字典补全，查找字典文件中的匹配单词，组成补全列表
+* i_CTRL-X CTRL-T — 分类补全，查找分类文件（thesaurus 文件）中的匹配单词，组成补全列表
+* i_CTRL-X CTRL-S — 拼写建议
+* i_CTRL-X CTRL-O - OmniCompletion 全能补全，通常需要设置omnifunc, :help omnifunc
+* i_CTRL-X CTRL-] - Tag补全
+* i_CTRL-X CTRL-F - 文件名补全
+* i_CTRL-X CTRL-L - 整行补全
+
+绝大部分补全插件自动或半自动的协助键入这些补全命令以方便完成补全，比较实用的是语法补全，一般通过定义omnifunc为指定的语言语法生成函数完成，例如python的jedi，另外比较常用的是snip补全。

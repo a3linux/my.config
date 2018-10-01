@@ -50,6 +50,12 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Keep NERDTree on each tab
 Plug 'jistr/vim-nerdtree-tabs'
 
+" Buffer Explorer
+Plug 'jlanzarotta/bufexplorer'
+
+" Narrow Windows
+Plug 'chrisbra/NrrwRgn'
+
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf'
@@ -66,6 +72,9 @@ Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-surround'  " Play with cs, ds and ys
 Plug 'tpope/vim-repeat'
 
+" Misc
+Plug 'tpope/vim-sensible'
+
 " git support
 " Git command wrapper - :G<git-cmd>
 Plug 'tpope/vim-fugitive'
@@ -73,6 +82,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 " Plugin to show git diff in gutter(sign column)
 Plug 'airblade/vim-gitgutter'
+
+" General Writing
+Plug 'reedes/vim-lexical'
 
 " Programming languages
 Plug 'w0rp/ale'
@@ -82,6 +94,17 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'majutsushi/tagbar'
 
 " perl
+
+"
+" Ruby
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'osyo-manga/vim-monster'
+" Groovy and Jenkinsfile
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'vim-scripts/groovy.vim'
 
 " Go
 
@@ -112,6 +135,10 @@ Plug 'plasticboy/vim-markdown'
 " HTML/XML and mark languages
 Plug 'alvan/vim-closetag'
 
+" terraform
+Plug 'hashivim/vim-terraform'
+Plug 'sebosp/vim-snippets-terraform'
+
 " Complete solution
 " YouCompleteMe - Disable as install need compile and more Settings
 " Plug 'Valloric/YouCompleteMe'
@@ -121,6 +148,9 @@ Plug 'alvan/vim-closetag'
 Plug 'maralla/completor.vim'
 " Code snippet
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" Testing
+Plug 'janko-m/vim-test'
 
 " End Plugins
 
@@ -314,6 +344,7 @@ let g:ctrlp_custom_ignore = {
 let g:completor_python_binary = 'python3'
 let g:completor_node_binary = 'node'
 let g:completor_gocode_binary = 'gocode'
+let g:completor_ruby_omni_trigger = '[^. *\t]\.\w*\|\h\w*::'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<F2>"
@@ -321,6 +352,15 @@ let g:UltiSnipsListSnippets="<F2>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" For Ruby complet
+" From vim-ruby
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+let g:monster#completion#backend = 'solargraph'
+let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
 
 " Fix to let ESC work as escape with Autoclose plugins
 let g:AutoClosePumvisible = { "ENTER": "\<C-Y>", "ESC": "\<ESC>" }
@@ -347,6 +387,7 @@ nmap <Leader>f :Autoformat<CR>
 "let g:autoformat_autoindent = 0
 "let g:autoformat_retab = 0
 "let g:autoformat_remove_trailing_spaces = 0
+let g:autoformat_verbosemode = 1
 autocmd FileType vim,tex let b:autoformat_autoindent=0
 let g:formatters_python = ['autopep8']
 
@@ -394,6 +435,16 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType jsx setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType ejs setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType Jenkinsfile setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" General writing
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd call lexical#init()
+  autocmd FileType textile call lexical#init()
+  autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
 
 " End functions
 

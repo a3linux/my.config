@@ -7,6 +7,7 @@ alias tmux="tmux -2"
 
 if [[ ${OSNAME} =~ "Darwin" ]]; then
     alias ls="ls -G"
+    alias ll="ls -Gl"
 fi
 
 # Used to use cls as clear
