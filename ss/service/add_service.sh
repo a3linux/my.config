@@ -12,9 +12,9 @@ OUTPUT_CONFIG_FILE=${OUTPUT_DIR}/config.json
 
 CONFIG_DESTINATION=/home/core/ss
 
-docker run --rm -it -v ${TEMPLATE_DIR}:/data -v ${OUTPUT_DIR}:/out -e TEMPLATE=ss.service.tpl -e OUT_FILE=/out/ss.service pinterb/jinja2 service_port=$1
+docker run --rm -it -v ${TEMPLATE_DIR}:/data -v ${OUTPUT_DIR}:/out -e TEMPLATE=ss.service.tpl -e OUT_FILE=/out/ss.service -e "PGID=$(id -g)" -e "PUID=$(id -u)" pinterb/jinja2 service_port=$1
 
-docker run --rm -it -v ${TEMPLATE_DIR}:/data -v ${OUTPUT_DIR}:/out -e TEMPLATE=config.json.tpl -e OUT_FILE=/out/config.json pinterb/jinja2 service_port=$1 service_password=`LC_CTYPE=C tr -dc A-Za-z0-9 < /dev/urandom | head -c 32`
+docker run --rm -it -v ${TEMPLATE_DIR}:/data -v ${OUTPUT_DIR}:/out -e TEMPLATE=config.json.tpl -e OUT_FILE=/out/config.json -e "PGID=$(id -g)" -e "PUID=$(id -u)" pinterb/jinja2 service_port=$1 service_password=`LC_CTYPE=C tr -dc A-Za-z0-9 < /dev/urandom | head -c 32`
 
 if [ -f ${OUTPUT_SERIVCE_FILE} ]; then
     sudo mv ${OUTPUT_SERIVCE_FILE} /etc/systemd/user/ss-${1}.service
@@ -22,5 +22,11 @@ fi
 
 if [ -f ${OUTPUT_CONFIG_FILE} ]; then
     mkdir -p ${CONFIG_DESTINATION}
-    mv ${OUTPUT_CONFIG_FILE} ${CONFIG_DESTINATION}/config-${1}.json
+    sudo mv ${OUTPUT_CONFIG_FILE} ${CONFIG_DESTINATION}/config-${1}.json
+fi
+
+if [ -f /etc/systemd/user/ss-${1}.service ]; then
+    sudo systemctl enable /etc/systemd/user/ss-${1}.service
+    sudo systemctl enable ss-${1}.service
+    sudo systemctl start ss-${1}.service
 fi
