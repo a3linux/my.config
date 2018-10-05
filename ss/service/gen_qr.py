@@ -20,8 +20,6 @@ if __name__ == "__main__":
             ss_config_str = "%s:%s@%s:%s" % (conf["method"], conf["password"],
                                                   args.server_address,
                                                   conf["server_port"])
-            print(ss_config_str)
-            print(base64.b64encode(ss_config_str.encode('ascii')).decode('ascii'))
             img = qrcode.make("ss://%s" %
                               base64.b64encode(
                                   ss_config_str.encode('ascii')).decode('ascii'))
