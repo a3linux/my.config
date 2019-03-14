@@ -149,6 +149,9 @@ Plug 'maralla/completor.vim'
 " Code snippet
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+" Cheat.sh
+Plug 'dbeniamine/cheat.sh-vim'
+
 " Testing
 Plug 'janko-m/vim-test'
 

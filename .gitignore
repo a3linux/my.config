@@ -2,3 +2,4 @@
 *.pot
 *.pyc
 *~
+.DS_Store

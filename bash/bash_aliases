@@ -12,3 +12,7 @@ fi
 
 # Used to use cls as clear
 alias cls="clear"
+
+if [ -d $HOME/repos ]; then
+    alias crepos="cd $HOME/repos"
+fi
