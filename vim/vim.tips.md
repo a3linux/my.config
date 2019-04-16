@@ -122,5 +122,3 @@ vim的常用operator
 ### fzf模糊查找
 
 好久以来一直使用CtrlP，fzf加ag是比较新的替代方案。
-
-
